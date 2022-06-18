@@ -6,7 +6,7 @@
 
 // Return the number of rectangles that can make a square with a side length of maxLen.
 
- 
+
 
 // Example 1:
 
@@ -18,7 +18,7 @@
 
 // Input: rectangles = [[2,3],[3,7],[4,3],[3,7]]
 // Output: 3
- 
+
 
 // Constraints:
 
@@ -32,6 +32,22 @@
 
 
 
+/*
+ * @param {number[][]} rectangles
+ * @return {number}
+ */
+var countGoodRectangles = function (rectangles) {
+    let max = 0
+    for (let i = 0; i < rectangles.length; i++) {
+        rectangles[i][0] < rectangles[i][1] ? rectangles[i][1] = rectangles[i][0] : rectangles[i][0] = rectangles[i][1]
+        rectangles[i][0] > max ? max = rectangles[i][0] : max = max
+    }
 
+    let count = 0
+    for (let i = 0; i < rectangles.length; i++) {
+        rectangles[i][0] === max ? count++ : count = count
+    }
+    return count
+};
 
 
