@@ -2,8 +2,6 @@
 
 // You must implement a solution with a linear runtime complexity and use only constant extra space.
 
-
-
 // Example 1:
 
 // Input: nums = [2,2,1]
@@ -17,28 +15,24 @@
 // Input: nums = [1]
 // Output: 1
 
-
 // Constraints:
 
 // 1 <= nums.length <= 3 * 104
 // -3 * 104 <= nums[i] <= 3 * 104
 // Each element in the array appears twice except for one element which appears only once.
 
-
-
-
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var singleNumber = function (nums) {
-    nums = nums.sort((a, b) => a - b)
+  nums = nums.sort((a, b) => a - b);
 
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] == nums[i - 1] || nums[i] == nums[i + 1]) {
-            continue;
-        } else {
-            return nums[i];
-        }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] == nums[i - 1] || nums[i] == nums[i + 1]) {
+      continue;
+    } else {
+      return nums[i];
     }
+  }
 };

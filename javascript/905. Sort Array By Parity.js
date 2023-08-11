@@ -2,8 +2,6 @@
 
 // Return any array that satisfies this condition.
 
-
-
 // Example 1:
 
 // Input: nums = [3,1,2,4]
@@ -14,29 +12,25 @@
 // Input: nums = [0]
 // Output: [0]
 
-
 // Constraints:
 
 // 1 <= nums.length <= 5000
 // 0 <= nums[i] <= 5000
-
-
-
 
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
 var sortArrayByParity = function (nums) {
-    let odd = []
-    let even = []
+  let odd = [];
+  let even = [];
 
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] % 2 == 0) {
-            even.push(nums[i])
-        } else {
-            odd.push(nums[i])
-        }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 == 0) {
+      even.push(nums[i]);
+    } else {
+      odd.push(nums[i]);
     }
-    return nums = even.concat(odd)
+  }
+  return (nums = even.concat(odd));
 };

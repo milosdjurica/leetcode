@@ -8,8 +8,6 @@
 // "C" - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.
 // Return the sum of all the scores on the record. The test cases are generated so that the answer fits in a 32-bit integer.
 
-
-
 // Example 1:
 
 // Input: ops = ["5","2","C","D","+"]
@@ -44,7 +42,6 @@
 // "C" - Invalidate and remove the previous score, record is now [].
 // Since the record is empty, the total sum is 0.
 
-
 // Constraints:
 
 // 1 <= ops.length <= 1000
@@ -52,28 +49,22 @@
 // For operation "+", there will always be at least two previous scores on the record.
 // For operations "C" and "D", there will always be at least one previous score on the record.
 
-
-
-
-
-
-
 /**
  * @param {string[]} ops
  * @return {number}
  */
 var calPoints = function (ops) {
-    let arr = []
-    for (let i = 0; i < ops.length; i++) {
-        if (!isNaN(ops[i])) {
-            arr.push(+ops[i])
-        } else if (ops[i] == "C") {
-            arr.pop()
-        } else if (ops[i] == "D") {
-            arr.push(+arr[arr.length - 1] * 2)
-        } else if (ops[i] == "+") {
-            arr.push(+arr[arr.length - 1] + +arr[arr.length - 2])
-        }
+  let arr = [];
+  for (let i = 0; i < ops.length; i++) {
+    if (!isNaN(ops[i])) {
+      arr.push(+ops[i]);
+    } else if (ops[i] == "C") {
+      arr.pop();
+    } else if (ops[i] == "D") {
+      arr.push(+arr[arr.length - 1] * 2);
+    } else if (ops[i] == "+") {
+      arr.push(+arr[arr.length - 1] + +arr[arr.length - 2]);
     }
-    return arr.reduce((acc, cur) => acc + cur, 0)
+  }
+  return arr.reduce((acc, cur) => acc + cur, 0);
 };

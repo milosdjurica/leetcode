@@ -5,8 +5,6 @@
 
 // Return the maximum such product difference.
 
-
-
 // Example 1:
 
 // Input: nums = [5,6,2,7,4]
@@ -20,24 +18,17 @@
 // Explanation: We can choose indices 3 and 6 for the first pair (9, 8) and indices 1 and 5 for the second pair (2, 4).
 // The product difference is (9 * 8) - (2 * 4) = 64.
 
-
 // Constraints:
 
 // 4 <= nums.length <= 104
 // 1 <= nums[i] <= 104
-
-
-
-
-
-
 
 /*
  * @param {number[]} nums
  * @return {number}
  */
 var maxProductDifference = function (nums) {
-    nums = nums.sort((a, b) => a - b)
-    let len = nums.length
-    return (nums[len - 1] * nums[len - 2]) - (nums[0] * nums[1])
+  nums = nums.sort((a, b) => a - b);
+  let len = nums.length;
+  return nums[len - 1] * nums[len - 2] - nums[0] * nums[1];
 };

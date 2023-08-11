@@ -23,19 +23,19 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (temperatures) {
-	let answer = [];
+  let answer = [];
 
-	for (let i = 0; i < temperatures.length - 1; i++) {
-		let found = false;
-		for (let j = i + 1; j < temperatures.length; j++) {
-			if (temperatures[j] > temperatures[i]) {
-				found = true;
-				answer.push(j - i);
-				break;
-			}
-		}
-		if (!found) answer.push(0);
-	}
-	answer.push(0);
-	return answer;
+  for (let i = 0; i < temperatures.length - 1; i++) {
+    let found = false;
+    for (let j = i + 1; j < temperatures.length; j++) {
+      if (temperatures[j] > temperatures[i]) {
+        found = true;
+        answer.push(j - i);
+        break;
+      }
+    }
+    if (!found) answer.push(0);
+  }
+  answer.push(0);
+  return answer;
 };

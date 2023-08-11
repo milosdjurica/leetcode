@@ -6,8 +6,6 @@
 
 // Return an array ans of length nums1.length such that ans[i] is the next greater element as described above.
 
-
-
 // Example 1:
 
 // Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
@@ -24,7 +22,6 @@
 // - 2 is underlined in nums2 = [1,2,3,4]. The next greater element is 3.
 // - 4 is underlined in nums2 = [1,2,3,4]. There is no next greater element, so the answer is -1.
 
-
 // Constraints:
 
 // 1 <= nums1.length <= nums2.length <= 1000
@@ -32,15 +29,7 @@
 // All integers in nums1 and nums2 are unique.
 // All the integers of nums1 also appear in nums2.
 
-
 // Follow up: Could you find an O(nums1.length + nums2.length) solution?
-
-
-
-
-
-
-
 
 /**
  * @param {number[]} nums1
@@ -48,17 +37,17 @@
  * @return {number[]}
  */
 var nextGreaterElement = function (nums1, nums2) {
-    let sol = []
-    for (let i = 0; i < nums1.length; i++) {
-        let currIndex = nums2.indexOf(nums1[i])
-        let found = -1
-        for (let j = currIndex; j < nums2.length; j++) {
-            if (nums2[j] > nums1[i]) {
-                found = nums2[j]
-                break
-            }
-        }
-        sol.push(found)
+  let sol = [];
+  for (let i = 0; i < nums1.length; i++) {
+    let currIndex = nums2.indexOf(nums1[i]);
+    let found = -1;
+    for (let j = currIndex; j < nums2.length; j++) {
+      if (nums2[j] > nums1[i]) {
+        found = nums2[j];
+        break;
+      }
     }
-    return sol
+    sol.push(found);
+  }
+  return sol;
 };
