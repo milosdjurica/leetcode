@@ -27,6 +27,8 @@
 
 // Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
+use std::collections::hash_map;
+
 use super::Solution;
 
 impl Solution {
@@ -39,5 +41,20 @@ impl Solution {
             }
         }
         return vec![];
+    }
+
+    pub fn two_sum_hash_map(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut nums_map = hash_map::HashMap::new();
+
+        for (i, &current) in nums.iter().enumerate() {
+            let complement = target - current;
+            if let Some(&index) = nums_map.get(&complement) {
+                return vec![index as i32, i as i32];
+            }
+
+            nums_map.insert(current, i);
+        }
+
+        vec![0, 0]
     }
 }
