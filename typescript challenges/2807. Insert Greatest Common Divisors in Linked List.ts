@@ -44,11 +44,16 @@
  * }
  */
 
-function findGCD(a: number, b: number): number {
-  // Ensure both numbers are positive
-  a = Math.abs(a);
-  b = Math.abs(b);
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
 
+function findGCD(a: number, b: number): number {
   // Euclidean algorithm
   while (b !== 0) {
     const temp = b;
@@ -59,6 +64,10 @@ function findGCD(a: number, b: number): number {
   return a;
 }
 
+function findGCDRecursive(a: number, b: number): number {
+  return b === 0 ? a : findGCDRecursive(b, a % b);
+}
+
 function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
   if (head === null) return null;
 
@@ -67,7 +76,7 @@ function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
 
   while (node.next !== null) {
     const next = node.next;
-    const gcd = new ListNode(findGCD(prev.val, next.val));
+    const gcd = new ListNode(findGCDRecursive(prev.val, next.val));
 
     gcd.next = prev.next;
     prev.next = gcd;
@@ -75,6 +84,5 @@ function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
     prev = next;
     node = prev;
   }
-  console.log(head);
   return head;
 }
