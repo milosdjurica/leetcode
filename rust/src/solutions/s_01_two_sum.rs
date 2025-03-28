@@ -40,7 +40,7 @@ impl Solution {
                 }
             }
         }
-        return vec![];
+        vec![]
     }
 
     pub fn two_sum_hash_map(nums: Vec<i32>, target: i32) -> Vec<i32> {
